@@ -6,7 +6,7 @@ import (
 )
 
 func main(){
-	address := "localhost:5555"
+	address := "localhost:5000"
 	http.HandleFunc("/", home)
 	if err := http.ListenAndServe(address, nil); err != nil {
 		log.Fatalf("Error of listen server: %s", err)
@@ -22,5 +22,5 @@ func home (w http.ResponseWriter, r *http.Request){
 	if r.Method != "GET" {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 	}
-	http.ServeFile(w, r, "index.html")
+	http.ServeFile(w, r, "start_page.html")
 }
